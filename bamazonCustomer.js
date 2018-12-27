@@ -2,6 +2,7 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const connection = require("./dbConnect");
+//const { managerView } = require("./bamazonManager");
 
 // Purchase sequence
 async function purchase() {
@@ -100,7 +101,7 @@ function init() {
           purchase();
           break;
         case "Manager Login":
-          managerPortal();
+          managerView();
           break;
         case "Supervisor Login":
           supPortal();
@@ -109,11 +110,6 @@ function init() {
           doQuit();
       }
     });
-}
-
-function managerPortal() {
-  console.log("manager portal");
-  //options; login and quit
 }
 
 function supPortal() {
@@ -127,3 +123,6 @@ function doQuit() {
 }
 
 init();
+
+// module.exports = init;
+module.exports = { getItemListing, init };
